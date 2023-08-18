@@ -1,0 +1,9 @@
+body{
+    background-color: cyan;
+}
+
+.dash{
+    /* border: 3px solid black; */
+    width: 10px;
+    display: inline;
+}
