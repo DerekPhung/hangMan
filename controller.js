@@ -15,23 +15,56 @@ let answer = "word";
 let guess = "";
 let wrongCounter = 0;
 
+
 function guessing(){
-    guess = guess + document.getElementById("scanner").value.toLowerCase();
-   alert(guess);
-   document.getElementById("dash3").innerHTML = guess;
+    guess = document.getElementById("scanner").value.toLowerCase();
+//    alert(answer[1]);
+//    document.getElementById("dash0").innerHTML = guess;
+//    document.getElementById("dash1").innerHTML = guess;
+//    document.getElementById("dash2").innerHTML = guess;
+//    document.getElementById("dash3").innerHTML = guess;
+
+    showing(guess);
+
+}
+
+// takes in a parameter (user input letter)
+// then iterates through the answer
+// then if statement checks to see if that letter matches the answer at the specific index[i]
+// if it does it changes the dash[i] to the corresponding letter
+function showing(letter){
+    for(let i = 0; i < answer.length; i++){
+        if(letter == answer[i]){
+            document.getElementById(`dash${i}`).innerHTML = letter;
+            return;
+        }
+    }
+
+        alert(letter + " is not correct");
+        wrongCounter++;
+        alert(wrongCounter);
+        if(wrongCounter == 6){
+            alert("You lose, better luck next time");
+        }
 }
 
 document.getElementById("1").innerHTML  += `
 <input id="scanner" type="text" minlength="1" maxlength="1"/>
 <button onclick="guessing()">Guess</button>
 
+<div class="dash" id="dash0">-</div>
 <div class="dash" id="dash1">-</div>
 <div class="dash" id="dash2">-</div>
 <div class="dash" id="dash3">-</div>
-<div class="dash" id="dash4">-</div>
 `;
 
-// reminder for tmr for my future self
-// still mutating the string!!!!
-// 3rd action item
-// working on the guessing function which is the only function why am I guessing which function when there is only one function >=O
+// Things I have done on Friday
+// Created the showing function
+// user can now guess the letter and will show if guessed correctly
+// made wrongCounter working
+// if user guesses incorrectly too many times you lose (at least verbally via alert method)
+
+// things to do on Monday
+// display the incorrect guesses somewhere on the screen for the user
+// draw the actual hang man
+
