@@ -2,10 +2,10 @@
 // (Done) 2nd, we need users to be able to start guessing. We need to have an input from users
 // (Done) 3rd, if user guesses correctly the letter of the word starts to show
 // (Done) 4th, if they guess incorrectly the wrong counter starts counting when they get wrong
-// 5th, the hangman starts to be drawn
-// 6th, if user guesses all letters correctly they will be prompted with a yay!! you got it correct!!
+// (Done) 5th, the hangman starts to be drawn
+// (Done) 6th, if user guesses all letters correctly they will be prompted with a yay!! you got it correct!!
 // (Done) 7th, if user runs out of guesses they will be prompted with a sorry, better luck next time!
-// 8th, they will then be prompted if they want to play again
+// (Done) 8th, they will then be prompted if they want to play again
 
 // requirements
 // 1. They can only guess letter
@@ -15,15 +15,29 @@
 // the variable guess, is what the user is inputing
 // the variable wrongCounter is a counter to count how many guesses they have guessed wrong
 // these are global variables so that devs can use them and keep track of them
-let answer = "word";
+let answer = "food";
 let guess = "";
 let wrongCounter = 0;
+let correctAnswerSoFar = "";
 
 // the guess variable becomes what the user puts based on the id "scanner",
 // also it is forced to be lower case
 function guessing(){
     guess = document.getElementById("scanner").value.toLowerCase();
+    // if user already guessed a correct letter, this prevents the user from guessing it twice
+    if(correctAnswerSoFar.includes(guess)){
+        alert("you already guessed that");
+        return;
+    }
     showing(guess);
+
+    // if the correct answer user inputs is the same length as the answer's length alert the user
+    // informing them that their guesses are correct
+    // afterwards it prompts them if they want to play again
+    if(correctAnswerSoFar.length == answer.length){
+        alert("Yay your stupid solution worked!!");
+        playAgain();
+    }
 }
 
 // takes in a parameter (user input letter)
@@ -31,26 +45,101 @@ function guessing(){
 // then if statement checks to see if that letter matches the answer at the specific index[i]
 // if it does it changes the dash[i] to the corresponding letter
 function showing(letter){
+    let foundAnswer = false;
     for(let i = 0; i < answer.length; i++){
         if(letter == answer[i]){
             document.getElementById(`dash${i}`).innerHTML = letter;
-            return;
+            foundAnswer = true;
+            correctAnswerSoFar += letter;
         }  
     }
-
+    if(foundAnswer == true){
+        return;
+    }
     // wrong counter increments when you guess wrong
-    // line 46 letting user know that their imminent doom is coming
-    // the DOM id "wrong" is appending the incorrect guesses area based on user input that is wrong 
-    alert(letter + " is not correct");
     wrongCounter++;
-    alert(wrongCounter + " This is the wrong counter");
     document.getElementById("wrong").innerHTML += letter;
     // user has 5 guesses to guess the word if wrongCounter == 6 they lose
-    if(wrongCounter == 6){
-        alert("You lose, better luck next time");
+
+    // calls the revealHangMan function
+    revealHangMan();
+}
+
+// function that prompts the user if they would like to play again
+function playAgain(){
+    if(confirm("Would you like to play again?")){
+        location.reload();
+      } else {
+        //nothing;
+      }
+}
+
+// function that uses switch statements based on the wrongCounter to call the functions of the specific
+// limbs to reveal them one at a time
+function revealHangMan(){
+    switch(wrongCounter){
+        case 1:
+            headAppear();
+            break;
+
+        case 2:
+            bodyAppear();
+            break;
+
+        case 3:
+            leftArmAppear();
+            break;
+
+        case 4:
+            rightArmAppear();
+            break;
+
+        case 5:
+            leftLegAppear();
+            break;
+
+        case 6:
+            rightLegAppear();
+            alert("you lose");
+            playAgain();
+            break;
     }
 }
 
+// revealing the man by grouping all of the limbs to the class gone
+// the class "gone" hides the man from showing but is technically there
+// the functions serve to remove the class "gone" from the limbs in order to reveal them
+function headAppear(){
+    let head = document.getElementById("head");
+    head.classList.remove("gone");
+}
+
+function bodyAppear(){
+    let body = document.getElementById("body");
+    body.classList.remove("gone");
+}
+
+function leftArmAppear(){
+    let leftArm = document.getElementById("leftArm");
+    leftArm.classList.remove("gone");
+}
+
+function rightArmAppear(){
+    let rightArm = document.getElementById("rightArm");
+    rightArm.classList.remove("gone");
+}
+
+function leftLegAppear(){
+    let leftLeg = document.getElementById("leftLeg");
+    leftLeg.classList.remove("gone");
+}
+
+function rightLegAppear(){
+    let rightLeg = document.getElementById("rightLeg");
+    rightLeg.classList.remove("gone");
+}
+
+// The dashes representing the word you have to guess right next to the guess button
 document.getElementById("1").innerHTML  += `
 <input id="scanner" type="text" minlength="1" maxlength="1"/>
 <button onclick="guessing()">Guess</button>
@@ -60,16 +149,33 @@ document.getElementById("1").innerHTML  += `
 <div class="dash" id="dash2">-</div>
 <div class="dash" id="dash3">-</div><br><br>
 
+<!--
+    this represents the incorrect guesses area
+-->
 <h3>Incorrect Guesses</h1>
 <div class="dash" id="wrong"></div>
 `;
 
-// Things I have done on Monday
-// implemented a display for incorrect guesses
-// drew a man
 
-// Things to do on Tuesday
-// Draw a hang
-// Hide the man
-// When user guesses wrong, slowly reveal the man
+// Things done on Wednesday
+// Drew a hang
+// hid the man
+// created another global variable "correctAnswerSoFar" these are the correct guesses thus far
+// to keep track of the correct guesses
+// to be able to compare the correct guesses to the answer at the end of the guessing game
+// fixed a bug where user could guess the same correct letters twice
+// fixed a bug where if user guessed the correct letter with multiple appearances, only one would show
+// when the user guesses the word correctly, created a prompt that let's the user know that they won
+// reveal the man as the user guesses incorrectly
+// when the man appears, created a prompt that let's the user know that they lost
+// created an alert to prompt the user if they wish to play again after guessing correctly or incorrectly
 
+// To do list
+// bug fix the pop up shows before the last limb reveals
+// bug fix the pop up shows before the last correct letter is revealed
+// the answer is hard coded and needs to have an implementation where it can accept any word
+// design suggestion to move the dashes under the hangman
+// potentially move the incorrect guesses as well
+// list of words that can be used for possible answers that will be picked randomly
+// deploy webpage to live production
+// make it mobile friendly

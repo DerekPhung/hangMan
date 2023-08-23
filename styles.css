@@ -63,7 +63,44 @@ body{
 
 #hangMan{
     border: 3px solid black;
+    border-radius: 20px;
     width: 900px;
     height: 900px;
     background-color: white;
+}
+
+#hang1{
+    border: 3px solid black;
+    width: 750px;
+    top: 978px;
+    left: 75px;
+    position: absolute;
+}
+
+#hang2{
+    border: 3px solid black;
+    height: 840px;
+    top: 132px;
+    left: 169px;
+    position: absolute;
+}
+
+#hang3{
+    border: 3px solid black;
+    width: 382px;
+    top: 132px;
+    left: 169px;
+    position: absolute;
+}
+
+#hang4{
+    border: 3px solid black;
+    height: 37px;
+    top: 137px;
+    left: 551px;
+    position: absolute;
+}
+
+.gone{
+    visibility: hidden;
 }
