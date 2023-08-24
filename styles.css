@@ -5,7 +5,9 @@ body{
 .dash{
     /* border: 3px solid black; */
     width: 10px;
+    height: 1px;
     display: inline;
+    padding: 10px;
 }
 
 #head{
@@ -65,7 +67,7 @@ body{
     border: 3px solid black;
     border-radius: 20px;
     width: 900px;
-    height: 900px;
+    height: 1000px;
     background-color: white;
 }
 
@@ -103,4 +105,15 @@ body{
 
 .gone{
     visibility: hidden;
+}
+
+#userInput{
+    /* border: 3px solid black; */
+    height: 100px;
+    width: 900px;
+    font-size: 4em;
+}
+
+#dashList{
+    /* font-size: 6em; */
 }

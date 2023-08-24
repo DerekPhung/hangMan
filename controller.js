@@ -15,10 +15,27 @@
 // the variable guess, is what the user is inputing
 // the variable wrongCounter is a counter to count how many guesses they have guessed wrong
 // these are global variables so that devs can use them and keep track of them
-let answer = "food";
+
+let wordBank = ["food", "good", "great", "awesome", "amazing", "perfect",
+"excellent", "magnificent", "galatic", "ultimate", "exia", "heavyarms"];
+let answer = "";
 let guess = "";
 let wrongCounter = 0;
 let correctAnswerSoFar = "";
+
+wordSelector();
+
+function wordSelector(){
+   let number = Math.floor(Math.random() * wordBank.length);
+   answer = wordBank[number];
+   dashCreator();
+}
+
+function dashCreator(){
+    for(let i = 0; i < answer.length; i++){
+        document.getElementById("dashList").innerHTML += `<div class="dash" id="dash${i}">-</div>`;
+    }
+}
 
 // the guess variable becomes what the user puts based on the id "scanner",
 // also it is forced to be lower case
@@ -139,43 +156,16 @@ function rightLegAppear(){
     rightLeg.classList.remove("gone");
 }
 
-// The dashes representing the word you have to guess right next to the guess button
-document.getElementById("1").innerHTML  += `
-<input id="scanner" type="text" minlength="1" maxlength="1"/>
-<button onclick="guessing()">Guess</button>
-
-<div class="dash" id="dash0">-</div>
-<div class="dash" id="dash1">-</div>
-<div class="dash" id="dash2">-</div>
-<div class="dash" id="dash3">-</div><br><br>
-
-<!--
-    this represents the incorrect guesses area
--->
-<h3>Incorrect Guesses</h1>
-<div class="dash" id="wrong"></div>
-`;
-
-
-// Things done on Wednesday
-// Drew a hang
-// hid the man
-// created another global variable "correctAnswerSoFar" these are the correct guesses thus far
-// to keep track of the correct guesses
-// to be able to compare the correct guesses to the answer at the end of the guessing game
-// fixed a bug where user could guess the same correct letters twice
-// fixed a bug where if user guessed the correct letter with multiple appearances, only one would show
-// when the user guesses the word correctly, created a prompt that let's the user know that they won
-// reveal the man as the user guesses incorrectly
-// when the man appears, created a prompt that let's the user know that they lost
-// created an alert to prompt the user if they wish to play again after guessing correctly or incorrectly
-
 // To do list
 // bug fix the pop up shows before the last limb reveals
 // bug fix the pop up shows before the last correct letter is revealed
-// the answer is hard coded and needs to have an implementation where it can accept any word
-// design suggestion to move the dashes under the hangman
-// potentially move the incorrect guesses as well
-// list of words that can be used for possible answers that will be picked randomly
+// (done) the answer is hard coded and needs to have an implementation where it can accept any word
+// (done) design suggestion to move the dashes under the hangman
+// potentially move the incorrect guesses as well (thinking to the right)
+// (done) list of words that can be used for possible answers that will be picked randomly
 // deploy webpage to live production
 // make it mobile friendly
+
+// What I have done on Thursday
+// Made it less "Hard code" now picks a random word from the word bank instead of one set answer
+// moved the guess to below the hangman for design changes

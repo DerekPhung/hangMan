@@ -10,7 +10,7 @@
     <script defer src="controller.js"></script>
 </head>
 <body>
-    <div id="1"></div>
+
     <div id="hangMan">
         <div id="head" class="gone"></div>
         <div id="body" class="gone"></div>
@@ -25,6 +25,21 @@
         <div id="hang2"></div>
         <div id="hang3"></div>
         <div id="hang4"></div>
+    </div>
+
+    <div id="userInput">
+        
+        <input id="scanner" type="text" minlength="1" maxlength="1"/>
+        <button onclick="guessing()">Guess</button>
+
+        <div id="dashList"></div>
+
+        <!--
+            this represents the incorrect guesses area
+        -->
+        <div>Incorrect Guesses</div>
+        <div class="dash" id="wrong"></div>
+
     </div>
 </body>
 </html>
