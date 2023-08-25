@@ -11,14 +11,29 @@
 </head>
 <body>
 
-    <div id="hangMan">
-        <div id="head" class="gone"></div>
-        <div id="body" class="gone"></div>
-        <div id="leftArm" class="gone"></div>
-        <div id="rightArm" class="gone"></div>
-        <div id="leftLeg" class="gone"></div>
-        <div id="rightLeg" class="gone"></div>
+    <div id="box">
+        <div id="hangMan">
+
+            <div id="userInput">
+                <input id="scanner" type="text" minlength="1" maxlength="1"/>
+                <button id="btn" onclick="guessing()">Guess</button>
+            </div>
+    
+            <div id="head" class="gone"></div>
+            <div id="body" class="gone"></div>
+            <div id="leftArm" class="gone"></div>
+            <div id="rightArm" class="gone"></div>
+            <div id="leftLeg" class="gone"></div>
+            <div id="rightLeg" class="gone"></div>
+        </div>
+    
+        <div id="incorrect">
+            <div>Incorrect Guesses</div>
+            <div id="wrong"></div>
+        </div>
     </div>
+
+    
 
     <div id="hang">
         <div id="hang1"></div>
@@ -27,19 +42,8 @@
         <div id="hang4"></div>
     </div>
 
-    <div id="userInput">
-        
-        <input id="scanner" type="text" minlength="1" maxlength="1"/>
-        <button onclick="guessing()">Guess</button>
-
+   
         <div id="dashList"></div>
-
-        <!--
-            this represents the incorrect guesses area
-        -->
-        <div>Incorrect Guesses</div>
-        <div class="dash" id="wrong"></div>
-
-    </div>
+  
 </body>
 </html>

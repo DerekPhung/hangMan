@@ -75,7 +75,7 @@ function showing(letter){
     }
     // wrong counter increments when you guess wrong
     wrongCounter++;
-    document.getElementById("wrong").innerHTML += letter;
+    document.getElementById("wrong").innerHTML += `<br>${letter}<br>`;
     // user has 5 guesses to guess the word if wrongCounter == 6 they lose
 
     // calls the revealHangMan function
@@ -161,11 +161,17 @@ function rightLegAppear(){
 // bug fix the pop up shows before the last correct letter is revealed
 // (done) the answer is hard coded and needs to have an implementation where it can accept any word
 // (done) design suggestion to move the dashes under the hangman
-// potentially move the incorrect guesses as well (thinking to the right)
+// (done) potentially move the incorrect guesses as well (thinking to the right)
 // (done) list of words that can be used for possible answers that will be picked randomly
 // deploy webpage to live production
 // make it mobile friendly
 
-// What I have done on Thursday
-// Made it less "Hard code" now picks a random word from the word bank instead of one set answer
-// moved the guess to below the hangman for design changes
+// Friday was dedicated to design
+// moved incorrect guesses to the right
+// created a border/box for the incorrect guesses
+// created a border box for the dashes
+// centered the dashes
+// moved the input guess box inside the hangman box (Top)
+// created a container for hangman and incorrect so that when you full screen it still looks the same
+// created a border radius for the input box as well as the button
+// fully utilized the incorrect box for incorrect guesses via <br> statements vertical instead of horizontal
