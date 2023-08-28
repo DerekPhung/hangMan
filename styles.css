@@ -163,3 +163,43 @@ body{
     height: 1000px;
     width: 1250px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* below is for mobile*/
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: yellow;
+    }
+  }

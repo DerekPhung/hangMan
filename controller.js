@@ -17,7 +17,8 @@
 // these are global variables so that devs can use them and keep track of them
 
 let wordBank = ["food", "good", "great", "awesome", "amazing", "perfect",
-"excellent", "magnificent", "galatic", "ultimate", "exia", "heavyarms"];
+"excellent", "magnificent", "galatic", "ultimate", "exia", "heavyarms", 
+"facetiously", "eutopia", "dystopia"];
 let answer = "";
 let guess = "";
 let wrongCounter = 0;
@@ -52,7 +53,7 @@ function guessing(){
     // informing them that their guesses are correct
     // afterwards it prompts them if they want to play again
     if(correctAnswerSoFar.length == answer.length){
-        alert("Yay your stupid solution worked!!");
+        alert("Yay you got it correct!!");
         playAgain();
     }
 }
@@ -156,6 +157,18 @@ function rightLegAppear(){
     rightLeg.classList.remove("gone");
 }
 
+function enterKey(){
+    let input = document.getElementById("scanner");
+    input.addEventListener("keypress", event => {
+        if(event.key === "Enter"){
+            // event.preventDefault(); not sure what this actually does but it works without it
+            document.getElementById("btn").click();
+        }
+    });
+}
+
+enterKey();
+
 // To do list
 // bug fix the pop up shows before the last limb reveals
 // bug fix the pop up shows before the last correct letter is revealed
@@ -163,15 +176,9 @@ function rightLegAppear(){
 // (done) design suggestion to move the dashes under the hangman
 // (done) potentially move the incorrect guesses as well (thinking to the right)
 // (done) list of words that can be used for possible answers that will be picked randomly
-// deploy webpage to live production
+// (done) deploy webpage to live production
 // make it mobile friendly
 
-// Friday was dedicated to design
-// moved incorrect guesses to the right
-// created a border/box for the incorrect guesses
-// created a border box for the dashes
-// centered the dashes
-// moved the input guess box inside the hangman box (Top)
-// created a container for hangman and incorrect so that when you full screen it still looks the same
-// created a border radius for the input box as well as the button
-// fully utilized the incorrect box for incorrect guesses via <br> statements vertical instead of horizontal
+// Things did on Monday
+// deployed it to live production
+// added a keypressed functionality
