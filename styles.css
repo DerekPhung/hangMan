@@ -164,6 +164,35 @@ body{
     width: 1250px;
 }
 
+#alertWin{
+    border: 3px solid black;
+    height: 300px;
+    width: 325px;
+    background-color: magenta;
+    position: absolute;
+    top: 53px;
+    left: 294px;
+    text-align: center;
+}
+
+#alertLose{
+    border: 3px solid black;
+    height: 300px;
+    width: 325px;
+    background-color: magenta;
+    position: absolute;
+    top: 53px;
+    left: 294px;
+    text-align: center;
+}
+#alertButton{
+    margin-top: 67px;
+    margin-left: -17px;
+}
+
+#test{
+
+}
 
 
 
