@@ -182,3 +182,7 @@ enterKey();
 // Things did on Monday
 // deployed it to live production
 // added a keypressed functionality
+// mobile is yellow background
+
+// Tuesday Bug fixes
+// Bug fixes with Modal
