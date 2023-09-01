@@ -45,6 +45,7 @@ function guessing(){
     // if user already guessed a correct letter, this prevents the user from guessing it twice
     if(correctAnswerSoFar.includes(guess)){
         alert("you already guessed that");
+        document.getElementById("scanner").value = "";
         return;
     }
     showing(guess);
@@ -72,6 +73,7 @@ function showing(letter){
         }  
     }
     if(foundAnswer == true){
+        document.getElementById("scanner").value = "";
         return;
     }
     // wrong counter increments when you guess wrong
@@ -81,6 +83,7 @@ function showing(letter){
 
     // calls the revealHangMan function
     revealHangMan();
+    document.getElementById("scanner").value = "";
 }
 
 // function that prompts the user if they would like to play again
@@ -178,8 +181,8 @@ function enterKey(){
 enterKey();
 
 // To do list
-// bug (Done) fix the pop up shows before the last limb reveals
-// bug (Done) fix the pop up shows before the last correct letter is revealed
+// (Done) bug fix the pop up shows before the last limb reveals
+// (Done) bug fix the pop up shows before the last correct letter is revealed
 // (done) the answer is hard coded and needs to have an implementation where it can accept any word
 // (done) design suggestion to move the dashes under the hangman
 // (done) potentially move the incorrect guesses as well (thinking to the right)
@@ -187,11 +190,10 @@ enterKey();
 // (done) deploy webpage to live production
 // make it mobile friendly
 
-// Things did on Tuesday
-// Bug fixes
-// created our own win and lose alerts
+// Things did on Thursday
+// input box now clears after user guesses
+// started on the mobile friendly design
+// styled the alerts via background color and border radius on the button and the box itself
 
-// Things to do on wednesday
-// clear the input box after guessing
-// mobile friendly
-// additional styling for the alerts
+// Things to do on Friday
+// Focusing on the mobile friendly design
