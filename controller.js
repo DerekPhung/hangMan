@@ -53,8 +53,8 @@ function guessing(){
     // informing them that their guesses are correct
     // afterwards it prompts them if they want to play again
     if(correctAnswerSoFar.length == answer.length){
-        alert("Yay you got it correct!!");
-        playAgain();
+        alertWin();
+        // playAgain();
     }
 }
 
@@ -85,11 +85,7 @@ function showing(letter){
 
 // function that prompts the user if they would like to play again
 function playAgain(){
-    if(confirm("Would you like to play again?")){
         location.reload();
-      } else {
-        //nothing;
-      }
 }
 
 // function that uses switch statements based on the wrongCounter to call the functions of the specific
@@ -118,8 +114,8 @@ function revealHangMan(){
 
         case 6:
             rightLegAppear();
-            alert("you lose");
-            playAgain();
+            alertLose();
+            // playAgain();
             break;
     }
 }
@@ -157,6 +153,18 @@ function rightLegAppear(){
     rightLeg.classList.remove("gone");
 }
 
+function alertWin(){
+    let alertBox = document.getElementById("alertWin");
+    alertBox.classList.remove("gone");
+}
+
+function alertLose(){
+    let alertBox = document.getElementById("alertLose");
+    alertBox.classList.remove("gone");
+}
+
+
+
 function enterKey(){
     let input = document.getElementById("scanner");
     input.addEventListener("keypress", event => {
@@ -170,8 +178,8 @@ function enterKey(){
 enterKey();
 
 // To do list
-// bug fix the pop up shows before the last limb reveals
-// bug fix the pop up shows before the last correct letter is revealed
+// bug (Done) fix the pop up shows before the last limb reveals
+// bug (Done) fix the pop up shows before the last correct letter is revealed
 // (done) the answer is hard coded and needs to have an implementation where it can accept any word
 // (done) design suggestion to move the dashes under the hangman
 // (done) potentially move the incorrect guesses as well (thinking to the right)
@@ -179,10 +187,11 @@ enterKey();
 // (done) deploy webpage to live production
 // make it mobile friendly
 
-// Things did on Monday
-// deployed it to live production
-// added a keypressed functionality
-// mobile is yellow background
+// Things did on Tuesday
+// Bug fixes
+// created our own win and lose alerts
 
-// Tuesday Bug fixes
-// Bug fixes with Modal
+// Things to do on wednesday
+// clear the input box after guessing
+// mobile friendly
+// additional styling for the alerts
