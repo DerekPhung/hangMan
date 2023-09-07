@@ -24,19 +24,34 @@ let guess = "";
 let wrongCounter = 0;
 let correctAnswerSoFar = "";
 
-wordSelector();
+// This function became useless after API implementation
+// wordSelector();
 
-function wordSelector(){
-   let number = Math.floor(Math.random() * wordBank.length);
-   answer = wordBank[number];
-   dashCreator();
-}
+// new word selector basically
+logDictionary();
 
+// function wordSelector(){
+// //    let number = Math.floor(Math.random() * wordBank.length);
+// //    answer = wordBank[number];
+//    logDictionary();
+// }
+
+// creates dashes based on the word from the API calling of the dictionary thing
 function dashCreator(){
     for(let i = 0; i < answer.length; i++){
         document.getElementById("dashList").innerHTML += `<div class="dash" id="dash${i}">-</div>`;
     }
 }
+
+// API calling
+async function logDictionary() {
+    const response = await fetch("https://random-word-api.herokuapp.com/word");
+    const dictionary = await response.json();
+    console.log(dictionary[0]);
+    answer = dictionary[0];
+    dashCreator();
+  }
+
 
 // the guess variable becomes what the user puts based on the id "scanner",
 // also it is forced to be lower case
@@ -178,6 +193,8 @@ function enterKey(){
     });
 }
 
+
+
 enterKey();
 
 // To do list
@@ -190,10 +207,9 @@ enterKey();
 // (done) deploy webpage to live production
 // make it mobile friendly
 
-// Things did on Thursday
-// input box now clears after user guesses
-// started on the mobile friendly design
-// styled the alerts via background color and border radius on the button and the box itself
+// Things did on Wednesday
+// implemented API calling using fetch()
+// wordSelector deprecated because of API
 
-// Things to do on Friday
+// Things to do on Thursday
 // Focusing on the mobile friendly design
