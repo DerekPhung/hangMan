@@ -207,9 +207,13 @@ enterKey();
 // (done) deploy webpage to live production
 // make it mobile friendly
 
-// Things did on Wednesday
-// implemented API calling using fetch()
-// wordSelector deprecated because of API
+// Things did on Thursday
+// mobile design
 
-// Things to do on Thursday
-// Focusing on the mobile friendly design
+// possible features
+// Correct word reveals after you lose
+// Definition of the word is presented
+
+// Things to do on next available day
+// Read and understand code
+// being able to recreate project on my own is a must
