@@ -166,7 +166,7 @@ body{
 
 #alertWin{
     border: 3px solid black;
-    border-radius: 20px;
+    border-radius: 50px;
     height: 300px;
     width: 325px;
     background-color: #e0ffff;
@@ -178,7 +178,7 @@ body{
 
 #alertLose{
     border: 3px solid black;
-    border-radius: 20px;
+    border-radius: 50px;
     height: 300px;
     width: 325px;
     background-color: #e0ffff;
@@ -205,41 +205,23 @@ body{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* below is for mobile*/
-
-
-
 
 
 
 @media only screen and (max-width: 600px) {
     body {
-      background-color: yellow;
+      background-color: teal;
+      border-radius: 50px;
     }
 
     #incorrect{
         position: absolute;
         left: 8px;
-        top: 1170px;
-        height: 1040px;
-        width: 1230px;
+        top: 1150px;
+        height: 955px;
+        width: 900px;
+        border-radius: 50px;
     }
 
     #box{
@@ -247,11 +229,14 @@ body{
     }
 
     #hangman{
-        min-width: 1230px;
+        max-width: 100vw;
+        border-radius: 50px;
     }
 
     #dashList{
-        width: 1230px;
+        min-width: 100vw;
+        width: 900px;
+        border-radius: 50px;
     }
 
     #btn{
@@ -260,12 +245,43 @@ body{
 
     #scanner{
         border: 3px solid black;
-        border-radius: 5px;
+        border-radius: 50px;
         height: 55px;
         width: 304px;
         font-size: 25px;
         text-align: center;
         position: absolute;
-        left: 835px;
+        left: 535px;
+    }
+
+    #alertLose{
+        border: 3px solid black;
+        border-radius: 20px;
+        height: 600px;
+        width: 625px;
+        background-color: #e0ffff;
+        position: absolute;
+        top: 53px;
+        left: 150px;
+        text-align: center;
+    }
+    #alertWin{
+        border: 3px solid black;
+        border-radius: 20px;
+        height: 600px;
+        width: 625px;
+        background-color: #e0ffff;
+        position: absolute;
+        top: 53px;
+        left: 150px;
+        text-align: center;
+    }
+    #alertButton{
+        margin-top: 67px;
+        margin-left: -17px;
+        border-radius: 20px;
+        height: 100px;
+        width: 200px;
+        font-size: 16px;
     }
   }
